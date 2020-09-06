@@ -16,6 +16,7 @@ gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails',             '~> 4.2'
+gem 'jquery-rails',             '~> 4.4'
 gem 'haml-rails',               '~> 2.0'
 gem 'simple_form',              '~> 5.0'
 gem 'simple_form',              '~> 5.0'
