@@ -15,9 +15,11 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'mini_racer', platforms: :ruby
 
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
-gem 'haml-rails', '~> 2.0'
-gem 'simple_form', '~> 5.0'
+gem 'coffee-rails',             '~> 4.2'
+gem 'haml-rails',               '~> 2.0'
+gem 'simple_form',              '~> 5.0'
+gem 'simple_form',              '~> 5.0'
+gem 'devise',                   '~> 4.7'
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
