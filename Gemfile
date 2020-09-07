@@ -18,9 +18,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails',             '~> 4.2'
 gem 'jquery-rails',             '~> 4.4'
 gem 'haml-rails',               '~> 2.0'
-gem 'simple_form',              '~> 5.0'
-gem 'simple_form',              '~> 5.0'
 gem 'devise',                   '~> 4.7'
+gem 'simple_form',              '~> 5.0'
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'

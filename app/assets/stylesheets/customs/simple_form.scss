@@ -1,0 +1,16 @@
+.simple_form {
+  .error {
+    .form-control {
+      border: 1px solid #F14747 !important;
+    }
+
+    label, small, .help-inline {
+      color: #F14747;
+    }
+
+    input, select {
+      border-color: #F14747;
+      margin-bottom: 5px !important;
+    }
+  }
+}
