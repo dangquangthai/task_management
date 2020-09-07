@@ -1,0 +1,15 @@
+%table.table.table-hover
+  %thead
+    %tr.table-primary
+      %td{ scope: 'col' } Tasks
+      %td{ scope: 'col' }
+      %td{ scope: 'col' }
+      %td{ scope: 'col' }
+  %tbody
+    - if @tasks.present?
+      - @tasks.each do |task|
+        = render 'task', task: task
+    - else
+      %tr
+        %td{ colspan: 4 } Not found
+= will_paginate @tasks, list_classes: %w(pagination justify-content-end)
