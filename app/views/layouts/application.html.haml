@@ -3,4 +3,7 @@
   %head
     = render 'layouts/head'
   %body
-    = yield
+    = render 'layouts/navbar'
+    .container
+      .row
+        .col-md= yield

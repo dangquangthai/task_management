@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'tasks#index'
-  resources :claims
+  root 'backlogs#index'
+  resources :backlogs
 end
