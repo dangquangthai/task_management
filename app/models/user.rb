@@ -11,6 +11,8 @@ class User < ApplicationRecord
     format: { with: /(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}/ }
   validates_uniqueness_of :username
 
+  has_many :tasks
+
   def email_required?
     false
   end

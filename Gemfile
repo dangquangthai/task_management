@@ -20,6 +20,9 @@ gem 'jquery-rails',             '~> 4.4'
 gem 'haml-rails',               '~> 2.0'
 gem 'devise',                   '~> 4.7'
 gem 'simple_form',              '~> 5.0'
+gem 'will_paginate-bootstrap4'
+gem 'paranoia',                 '~> 2.4'
+gem 'enumerize',                '~> 2.3'
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'

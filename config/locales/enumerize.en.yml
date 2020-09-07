@@ -1,0 +1,7 @@
+en:
+  enumerize:
+    task:
+      status:
+        open: Open
+        inprogress: In-Progress
+        closed: Closed
