@@ -7,12 +7,12 @@ Things you may want to cover:
 
 * Ruby version
 ```
-2.6.6
+2.6.1
 ```
 
 * System dependencies
 ```
-PostgreSQL
+Postgresql
 Redis
 ```
 
@@ -21,6 +21,9 @@ Redis
 * Database creation
 ```
 bundle exec rake db:create
+
+bundle exec rake db:schema:load
+bundle exec rake db:schema:load RAILS_ENV=test
 ```
 
 * Database initialization
