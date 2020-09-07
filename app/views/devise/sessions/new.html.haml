@@ -1,0 +1,11 @@
+.card
+  .card-header
+    Log in
+  .card-body
+    = render 'shared/alerts'
+    = simple_form_for(resource, as: resource_name, url: user_session_path) do |f|
+      = f.input :username, required: false, autofocus: true
+      = f.input :password, required: false, input_html: { autocomplete: "current-password" }
+      .row
+        .col-sm= link_to 'Register', new_user_registration_path, class: 'btn btn-light'
+        .col-sm.text-right= f.submit 'Login', class: 'btn btn-primary'
