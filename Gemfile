@@ -64,6 +64,7 @@ group :test do
   gem 'rails-controller-testing', '~> 1.0'
   gem 'simplecov', require: false
   gem 'faker', '~> 2.13'
+  gem 'shoulda-matchers', '~> 4.4'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
