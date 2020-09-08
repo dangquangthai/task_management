@@ -51,4 +51,35 @@ RSpec.describe Task, type: :model do
       it { expect(task.urgent_css).to eq 'badge badge-light' }
     end
   end
+
+  describe '.AASM' do
+    describe '.events' do
+      let(:task) { build_stubbed(:task) }
+
+      it do
+        expect(task).to transition_from(:open).to(:inprogress).on_event(:move_to_inprogress)
+        expect(task).to transition_from(:inprogress).to(:closed).on_event(:move_to_closed)
+      end
+    end
+
+    describe '#next_status' do
+      context 'when task is open' do
+        let(:task) { build_stubbed(:task) }
+
+        it { expect(task.next_status).to eq 'inprogress' }
+      end
+
+      context 'when task is inprogress' do
+        let(:task) { build_stubbed(:task, status: :inprogress) }
+
+        it { expect(task.next_status).to eq 'closed' }
+      end
+
+      context 'when task is closed' do
+        let(:task) { build_stubbed(:task, status: :closed) }
+
+        it { expect(task.next_status).to be nil }
+      end
+    end
+  end
 end

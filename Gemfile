@@ -23,6 +23,7 @@ gem 'simple_form',              '~> 5.0'
 gem 'will_paginate-bootstrap4'
 gem 'paranoia',                 '~> 2.4'
 gem 'enumerize',                '~> 2.3'
+gem 'aasm'
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
