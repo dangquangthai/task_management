@@ -19,4 +19,36 @@ RSpec.describe Task, type: :model do
   describe '.associations' do
     it { is_expected.to belong_to(:user) }
   end
+
+  describe '#important_text, #important_css' do
+    context 'when important is true' do
+      let(:task) { build_stubbed(:task, important: true) }
+
+      it { expect(task.important_text).to eq 'Important' }
+      it { expect(task.important_css).to eq 'badge badge-danger' }
+    end
+
+    context 'when important is false' do
+      let(:task) { build_stubbed(:task, important: false) }
+
+      it { expect(task.important_text).to eq 'Not Important' }
+      it { expect(task.important_css).to eq 'badge badge-light' }
+    end
+  end
+
+  describe '#urgent_text, #urgent_css' do
+    context 'when urgent is true' do
+      let(:task) { build_stubbed(:task, urgent: true) }
+
+      it { expect(task.urgent_text).to eq 'Urgent' }
+      it { expect(task.urgent_css).to eq 'badge badge-warning' }
+    end
+
+    context 'when urgent is false' do
+      let(:task) { build_stubbed(:task, urgent: false) }
+
+      it { expect(task.urgent_text).to eq 'Not Urgent' }
+      it { expect(task.urgent_css).to eq 'badge badge-light' }
+    end
+  end
 end

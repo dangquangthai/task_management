@@ -1,5 +1,9 @@
 %tr
-  %td= task.description
-  %td= task.urgent
-  %td= task.important
+  %td
+    = task.description
+    = task_status_badge(task)
+  %td
+    %span{ class: task.important_css }= task.important_text
+  %td
+    %span{ class: task.urgent_css }= task.urgent_text
   %td= task.status_text
