@@ -13,4 +13,21 @@
       margin-bottom: 5px !important;
     }
   }
+
+  .form-group.radio_buttons .controls {
+    .radio {
+      clear: both;
+      display: block;
+
+      input[type="radio"] {
+        width: auto;
+        float: left;
+      }
+
+      .collection_radio_buttons {
+        float: left;
+        margin: 8px;
+      }
+    }
+  }
 }

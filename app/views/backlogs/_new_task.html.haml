@@ -1,0 +1,10 @@
+= simple_form_for @new_task, url: backlogs_path, method: :post, remote: true do |f|
+  .row
+    .col-sm
+      = f.input :description, label: 'Enter your task'
+    .col-sm
+      .row
+        .col-sm= f.input :important, as: :radio_buttons, collection: [[false, 'Not Important'], [true, 'Important']], label_method: :second, value_method: :first, label: false
+        .col-sm= f.input :urgent, as: :radio_buttons, collection: [[false, 'Not Urgent'], [true, 'Urgent']], label_method: :second, value_method: :first, label: false
+  .row
+    .col-sm= f.submit 'ADD', class: 'btn btn-primary'
