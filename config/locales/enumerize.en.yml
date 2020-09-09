@@ -5,3 +5,6 @@ en:
         open: Open
         inprogress: In-Progress
         closed: Closed
+  next_status:
+    inprogress: Start
+    closed: Stop

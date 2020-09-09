@@ -18,7 +18,17 @@ module TaskStateMachine
     end
 
     def next_status
-      aasm.states(permitted: true).map(&:name).first&.to_s
+      aasm.states(permitted: true).map(&:name).first
+    end
+
+    def move_to_next_status!
+      send("#{next_event}!") if next_event.present?
+    end
+
+    private
+
+    def next_event
+      aasm.events(permitted: true).map(&:name).first
     end
   end
 end

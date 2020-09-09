@@ -66,19 +66,48 @@ RSpec.describe Task, type: :model do
       context 'when task is open' do
         let(:task) { build_stubbed(:task) }
 
-        it { expect(task.next_status).to eq 'inprogress' }
+        it { expect(task.next_status).to eq :inprogress }
       end
 
       context 'when task is inprogress' do
         let(:task) { build_stubbed(:task, status: :inprogress) }
 
-        it { expect(task.next_status).to eq 'closed' }
+        it { expect(task.next_status).to eq :closed }
       end
 
       context 'when task is closed' do
         let(:task) { build_stubbed(:task, status: :closed) }
 
         it { expect(task.next_status).to be nil }
+      end
+    end
+
+    describe '#move_to_next_status!' do
+      context 'when task is open' do
+        let(:task) { create(:task) }
+
+        it do
+          expect(task.move_to_next_status!).to be true
+          expect(task.inprogress?).to be true
+        end
+      end
+
+      context 'when task is inprogress' do
+        let(:task) { create(:task, status: :inprogress) }
+
+        it do
+          expect(task.move_to_next_status!).to be true
+          expect(task.closed?).to be true
+        end
+      end
+
+      context 'when task is closed' do
+        let(:task) { create(:task, status: :closed) }
+
+        it do
+          expect(task.move_to_next_status!).to be_nil
+          expect(task.closed?).to be true
+        end
       end
     end
   end

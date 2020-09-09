@@ -6,4 +6,5 @@
     %span{ class: task.important_css }= task.important_text
   %td
     %span{ class: task.urgent_css }= task.urgent_text
-  %td= task.status_text
+  %td
+    = task_next_status_button(task)

@@ -65,4 +65,18 @@ RSpec.describe BacklogsController, type: :controller do
       end
     end
   end
+
+  describe 'PATCH #update' do
+    let!(:task) { create(:task, user: current_user) }
+
+    before do
+      expect_any_instance_of(Task).to receive(:move_to_next_status!).once.and_call_original
+      patch :update, params: { id: task.id }
+    end
+
+    it 'should called move_to_next_status!' do
+      expect(response).to redirect_to backlogs_path
+      expect(flash[:notice]).to eq "Task's status has been updated"
+    end
+  end
 end

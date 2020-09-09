@@ -13,7 +13,16 @@ class BacklogsController < ApplicationController
     end
   end
 
+  def update
+    flash[:notice] = "Task's status has been updated" if existing_task.move_to_next_status!
+    redirect_to backlogs_path
+  end
+
   private
+
+  def existing_task
+    @existing_task ||= current_user.tasks.find(params[:id])
+  end
 
   def render_new_task
     render(partial: 'backlogs/new_task', layout: false, status: :unprocessable_entity)
