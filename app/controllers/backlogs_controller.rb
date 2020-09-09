@@ -2,7 +2,7 @@ class BacklogsController < ApplicationController
   before_action :new_task, only: [:index, :create]
 
   def index
-    @tasks = current_user.tasks.paginate(page: params[:page], per_page: 20)
+    @tasks = task_filter.perform
   end
 
   def create
@@ -18,7 +18,17 @@ class BacklogsController < ApplicationController
     redirect_to backlogs_path
   end
 
+  def destroy
+    existing_task.destroy
+    flash[:notice] = "Task has been deleted"
+    redirect_to backlogs_path
+  end
+
   private
+
+  def task_filter
+    @task_filter ||= TaskFilter.new(current_user: current_user, params: params)
+  end
 
   def existing_task
     @existing_task ||= current_user.tasks.find(params[:id])

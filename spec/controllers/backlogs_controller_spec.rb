@@ -6,8 +6,21 @@ RSpec.describe BacklogsController, type: :controller do
 
   describe 'GET #index' do
     let!(:task) { create(:task, user: current_user) }
+    let(:expected_params) do
+      ActionController::Parameters.new({
+        "status"=>"none",
+        "controller"=>"backlogs",
+        "action"=>"index"
+      })
+    end
 
-    before { get :index }
+    before do
+      expect(TaskFilter).to receive(:new)
+        .with(current_user: current_user, params: expected_params)
+        .and_call_original
+
+      get :index, params: { status: 'none' }
+    end
 
     specify do
       expect(response.content_type).to eq 'text/html'
@@ -77,6 +90,21 @@ RSpec.describe BacklogsController, type: :controller do
     it 'should called move_to_next_status!' do
       expect(response).to redirect_to backlogs_path
       expect(flash[:notice]).to eq "Task's status has been updated"
+    end
+  end
+
+  describe 'DELETE #destroy' do
+    let!(:task) { create(:task, user: current_user) }
+
+    before do
+      expect {
+        delete :destroy, params: { id: task.id }
+      }.to change { current_user.tasks.count }.by(-1)
+    end
+
+    it 'should called move_to_next_status!' do
+      expect(response).to redirect_to backlogs_path
+      expect(flash[:notice]).to eq "Task has been deleted"
     end
   end
 end

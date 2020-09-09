@@ -15,5 +15,6 @@
 //= require activestorage
 //= require turbolinks
 //= require bootstrap/dist/js/bootstrap
-//= require task_creator
+//= require tasks/filter
+//= require tasks/creator
 //= require_tree .

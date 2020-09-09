@@ -7,6 +7,8 @@ class Task < ApplicationRecord
   enumerize :status, in: %i[open inprogress closed], default: :open, scope: true, predicates: true
   validates :description, presence: true, length: { maximum: 40 }
 
+  scope :opening, -> { with_status(:open, :inprogress) }
+
   def important_text
     important? ? 'Important' : 'Not Important'
   end

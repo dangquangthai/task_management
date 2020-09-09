@@ -12,5 +12,10 @@
  *
  *= require_tree .
  *= require bootstrap/dist/css/bootstrap
+ *= require open-iconic/font/css/open-iconic-bootstrap
  *= require_self
  */
+
+.w60per {
+  width: 60%;
+}

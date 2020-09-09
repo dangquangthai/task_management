@@ -2,6 +2,7 @@
   "name": "task_management",
   "private": true,
   "dependencies": {
-    "bootstrap": "^4.5.2"
+    "bootstrap": "^4.5.2",
+    "open-iconic": "^1.1.1"
   }
 }

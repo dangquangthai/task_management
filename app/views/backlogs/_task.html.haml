@@ -6,5 +6,7 @@
     %span{ class: task.important_css }= task.important_text
   %td
     %span{ class: task.urgent_css }= task.urgent_text
-  %td
+  %td.text-right
     = task_next_status_button(task)
+    = link_to backlog_path(task.id), class: 'btn btn-sm btn-outline-danger', data: { confirm: 'are you sure?', method: :delete } do
+      %span.oi.oi-trash

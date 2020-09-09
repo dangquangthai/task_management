@@ -20,6 +20,16 @@ RSpec.describe Task, type: :model do
     it { is_expected.to belong_to(:user) }
   end
 
+  describe '.scopes' do
+    describe '#opening' do
+      let!(:task_01) { create(:task, status: :inprogress) }
+      let!(:task_02) { create(:task, status: :closed, user: task_01.user) }
+      let!(:task_03) { create(:task, user: task_01.user) }
+
+      it { expect(described_class.opening).to match_array([task_01, task_03]) }
+    end
+  end
+
   describe '#important_text, #important_css' do
     context 'when important is true' do
       let(:task) { build_stubbed(:task, important: true) }
